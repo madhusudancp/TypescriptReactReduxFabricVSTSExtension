@@ -9,3 +9,9 @@ export enum FormMode {
     CreateNew,
     Edit
 }
+
+export interface IAuthor{
+    id: string;
+    title: string;
+    firstName: string;
+}

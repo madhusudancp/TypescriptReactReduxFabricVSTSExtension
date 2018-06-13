@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "typereactor",
-    "version": "0.0.92",
+    "version": "0.0.94",
     "name": "Typescript8with react",
     "scopes": [
         "vso.profile",
