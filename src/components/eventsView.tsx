@@ -4,8 +4,11 @@ import { TextField } from "office-ui-fabric-react/lib-amd/TextField";
 import { IAuthor } from '../models/models';
 
 interface Props {
-    createEvents: (value: IAuthor) => void
-}
+    users:IAuthor[],
+    createEvents: (value: IAuthor) => void 
+  }
+
+
 interface State {
   value: IAuthor
 }
@@ -13,6 +16,7 @@ interface State {
 export default class EventsView extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
+    console.log(this.props.users.length);
     this.state = {value:{firstName:'',title:'',id:'' }} // Value is empty by default
     this.onTitleChange=this.onTitleChange.bind(this);
     this.onClickSave=this.onClickSave.bind(this);
@@ -32,7 +36,7 @@ export default class EventsView extends React.Component<Props, State> {
 
   render() {
     const { value } = this.state
-    
+    const { users, createEvents } = this.props
     return (
         <div className="row">
      
@@ -46,8 +50,21 @@ export default class EventsView extends React.Component<Props, State> {
         <div className="col-sm-4">
             <PrimaryButton type='submit' onClick={this.onClickSave}>Submit</PrimaryButton>
         </div>
-
-
+        <div>
+          
+        <ul>
+        {
+          users.map(todo => (
+            <li key={todo.id}
+              style={{ cursor: 'pointer' }}>
+              {todo.title}
+            </li>)
+          )
+        }
+      </ul>
+        
+        
+</div>
 </div>  
 
     )

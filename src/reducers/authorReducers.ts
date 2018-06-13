@@ -33,7 +33,19 @@ export function authorReducer(state: AuthorState = AuthorinitialState, action: A
         users: [...state.users, user] // Add todo to todos array
       }
     }
-
+    case AuthorActionTypes.LOAD_USERS: {
+      /*
+       * We have autocompletion here
+       * Typescript knows the action is type of AddTodoAction thanks to the ActionTypes enum
+       * todo is type of Todo
+       */
+      const userList = action.payload.users;
+      return {
+        ...state,
+        users: [...state.users, ...userList] // Add todo to todos array
+      }
+    }
+    
     default:
       return state
   }
