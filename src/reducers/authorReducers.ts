@@ -1,15 +1,15 @@
 
 import { AuthorAction,AuthorActionTypes } from '../actions/authorActions'
 import { IAuthor } from '../models/models';
-
 // Define our State interface for the current reducer
-export interface State {
+
+export interface AuthorState {
   users: IAuthor[]
 }
 
 // Define our initialState
-export const initialState: State = {
-  users: [] // We don't have any todos at the start of the app
+export const AuthorinitialState: AuthorState = {
+  users: [] // We don't have any users at the start of the app
 }
 
 /* 
@@ -17,7 +17,7 @@ export const initialState: State = {
  * state: The state of the reducer. By default initialState ( if there was no state provided)
  * action: Action to be handled. Since we are in todos reducer, action type is Action defined in our actions/todos file.
  */
-export function reducer(state: State = initialState, action: AuthorAction) {
+export function authorReducer(state: AuthorState = AuthorinitialState, action: AuthorAction) {
   switch (action.type) {
 
     case AuthorActionTypes.ADD_AUTHOR: {
@@ -26,11 +26,11 @@ export function reducer(state: State = initialState, action: AuthorAction) {
        * Typescript knows the action is type of AddTodoAction thanks to the ActionTypes enum
        * todo is type of Todo
        */
-      const todo = action.payload.user
+      const user = action.payload.user
 
       return {
         ...state,
-        todos: [...state.users, todo] // Add todo to todos array
+        users: [...state.users, user] // Add todo to todos array
       }
     }
 

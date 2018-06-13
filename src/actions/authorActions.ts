@@ -6,8 +6,10 @@ import { IAuthor } from './../models/models';
  * Typescript understands enum better 
  */
 export enum AuthorActionTypes {
-  ADD_AUTHOR = '[users] ADD_AUTHOR'
+  ADD_AUTHOR = '[users] ADD_AUTHOR',
+  GET_AUTHOR = '[users] GET_AUTHOR'
 }
+
 
 /*
  * Define return types of our actions 
